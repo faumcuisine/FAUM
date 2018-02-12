@@ -32,7 +32,6 @@ public class RidersIDS extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot riderSnapshot: dataSnapshot.getChildren()){
                     riderIDS.add(riderSnapshot.toString());
-                    //riderID.setText(riderIDS.toString());
 
                 }
 
