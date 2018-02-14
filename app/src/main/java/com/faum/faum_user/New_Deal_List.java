@@ -165,7 +165,8 @@ public class New_Deal_List extends AppCompatActivity {
                         DEAL_NAME = dealSnapshot.child(DealId).getValue(NewDeal_Database.class).getDealName();
                         DEAL_CATEGORY = dealSnapshot.child(DealId).getValue(NewDeal_Database.class).getNewDealCategory();
                         DEAL_DISH_NAME = dealSnapshot.child(DealId).getValue(NewDeal_Database.class).getDishName();
-                        DEAL_DESCRIPTION = dealSnapshot.child(DealId).getValue(NewDeal_Database.class).getDealDescription();
+                        //DEAL_DESCRIPTION = dealSnapshot.child(DealId).getValue(NewDeal_Database.class).getDealDescription();
+                        DEAL_DESCRIPTION = dealSnapshot.child(DealId).getValue(NewDeal_Database.class).getNewDealPrice();
                     }catch (Exception e){
                         e.printStackTrace();
                     }finally {
