@@ -14,12 +14,12 @@ public class NewDeal_Database {
 
 
 
-    private String EstimateTime ,NewDealPrice ,NewDealSize ;
+    private String estimateTime ,newDealPrice ,newDealSize ;
 
     private Boolean eightToten ,twelveTotwo ,sixToeight, nineToeleven;
 
 
-    private Boolean Monday,Tuesday,Wednesday,Thursday , Friday ;
+    private Boolean monday,tuesday,wednesday,thursday , friday ;
 
     private Boolean checkBoxConfirmation;
 
@@ -61,22 +61,22 @@ public class NewDeal_Database {
         return dealDescription;
     }
 
-    public NewDeal_Database(String EstimateTime, String NewDealPrice, String NewDealSize){
-        this.EstimateTime = EstimateTime;
-        this.NewDealPrice = NewDealPrice;
-        this.NewDealSize = NewDealSize;
+    public NewDeal_Database(String estimateTime, String newDealPrice, String newDealSize){
+        this.estimateTime = estimateTime;
+        this.newDealPrice = newDealPrice;
+        this.newDealSize = newDealSize;
     }
 
     public String getEstimateTime() {
-        return EstimateTime;
+        return estimateTime;
     }
 
     public String getNewDealPrice() {
-        return NewDealPrice;
+        return newDealPrice;
     }
 
     public String getNewDealSize() {
-        return NewDealSize;
+        return newDealSize;
     }
 
     public  NewDeal_Database(Boolean eightToten, Boolean twelveTotwo, Boolean sixToeight, Boolean nineToeleven){
@@ -102,33 +102,33 @@ public class NewDeal_Database {
         return nineToeleven;
     }
 
-    public NewDeal_Database(Boolean Monday, Boolean Tuesday, Boolean Wednesday, Boolean Thursday, Boolean Friday){
-        this.Monday = Monday;
-        this.Tuesday = Tuesday;
-        this.Wednesday = Wednesday;
-        this.Thursday = Thursday;
-        this.Friday = Friday;
+    public NewDeal_Database(Boolean monday, Boolean tuesday, Boolean wednesday, Boolean thursday, Boolean friday){
+        this.monday = monday;
+        this.tuesday = tuesday;
+        this.wednesday = wednesday;
+        this.thursday = thursday;
+        this.friday = friday;
 
     }
 
     public Boolean getMonday() {
-        return Monday;
+        return monday;
     }
 
     public Boolean getTuesday() {
-        return Tuesday;
+        return tuesday;
     }
 
     public Boolean getWednesday() {
-        return Wednesday;
+        return wednesday;
     }
 
     public Boolean getThursday() {
-        return Thursday;
+        return thursday;
     }
 
     public Boolean getFriday() {
-        return Friday;
+        return friday;
     }
 
 

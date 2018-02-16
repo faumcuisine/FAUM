@@ -165,8 +165,8 @@ public class New_Deal_List extends AppCompatActivity {
                         DEAL_NAME = dealSnapshot.child(DealId).getValue(NewDeal_Database.class).getDealName();
                         DEAL_CATEGORY = dealSnapshot.child(DealId).getValue(NewDeal_Database.class).getNewDealCategory();
                         DEAL_DISH_NAME = dealSnapshot.child(DealId).getValue(NewDeal_Database.class).getDishName();
-                        //DEAL_DESCRIPTION = dealSnapshot.child(DealId).getValue(NewDeal_Database.class).getDealDescription();
-                        DEAL_DESCRIPTION = dealSnapshot.child(DealId).getValue(NewDeal_Database.class).getNewDealPrice();
+                        DEAL_DESCRIPTION = dealSnapshot.child(DealId).getValue(NewDeal_Database.class).getDealDescription();
+                        //DEAL_DESCRIPTION = dealSnapshot.child(DealId).getValue(NewDeal_Database.class).getNewDealPrice();
                     }catch (Exception e){
                         e.printStackTrace();
                     }finally {
@@ -215,9 +215,9 @@ public class New_Deal_List extends AppCompatActivity {
                     }catch (Exception e){
                         e.printStackTrace();
                     }finally {
-                        DEAL_ESTIMATEDTIME="60";
-                        DEAL_PRICE = "700";
-                        DEAL_SIZE = "10";
+                        //DEAL_ESTIMATEDTIME="60";
+                        //DEAL_PRICE = "700";
+                        //DEAL_SIZE = "10";
                         mEditor.putString(getString(R.string.DEAL_ESTIMATEDTIME), DEAL_ESTIMATEDTIME);
                         mEditor.commit();
 
@@ -347,11 +347,7 @@ public class New_Deal_List extends AppCompatActivity {
                     }catch (Exception e){
                         e.printStackTrace();
                     }finally {
-                        DEAL_DAYS_MONDAY = "Available";
-                        DEAL_DAYS_TUESDAY = "Available";
-                        DEAL_DAYS_WEDNESDAY = "Not-Available";
-                        DEAL_DAYS_THURSDAY = "Not-Available";
-                        DEAL_DAYS_FRIDAY = "Not-Available";
+
                         mEditor.putString(getString(R.string.DEAL_DAYS_MONDAY), DEAL_DAYS_MONDAY);
                         mEditor.commit();
 
@@ -364,7 +360,7 @@ public class New_Deal_List extends AppCompatActivity {
                         mEditor.putString(getString(R.string.DEAL_DAYS_THURSDAY), DEAL_DAYS_THURSDAY);
                         mEditor.commit();
 
-                        mEditor.putString(getString(R.string.DEAL_DAYS_FRIDAY), DEAL_DAYS_THURSDAY);
+                        mEditor.putString(getString(R.string.DEAL_DAYS_FRIDAY), DEAL_DAYS_FRIDAY);
                         mEditor.commit();
                     }
                 }
