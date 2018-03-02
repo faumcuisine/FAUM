@@ -12,6 +12,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -136,6 +137,7 @@ public class MapsActivityForCooker extends FragmentActivity implements OnMapRead
             public void onLocationResult(String key, GeoLocation location) {
 
                 cookerLocation = new LatLng(location.latitude,location.longitude);
+                //Log.d("Cooker location",cookerLocation.toString());
 
                 mMap.addMarker(new MarkerOptions().position(cookerLocation)
                         .title("Cooker Location")

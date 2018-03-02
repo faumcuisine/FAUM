@@ -14,7 +14,13 @@ public class UserIdSet {
         this.email = email;
         this.id = uid;
     }
+    public UserIdSet(String uid){
+        this.id=uid;
+    }
 
+    public String getPhonenumber() {
+        return phonenumber;
+    }
 
     public String getEmail() {
         return email;
