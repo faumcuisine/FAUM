@@ -33,7 +33,7 @@ public class Personal_Information extends AppCompatActivity {
         etEmail = (EditText)findViewById(R.id.etEmail);
         btnConfirm = (Button)findViewById(R.id.btnConfirm);
 
-        pInformation = FirebaseDatabase.getInstance().getReference("User Basic Information");
+        pInformation = FirebaseDatabase.getInstance().getReference("User Personal Information");
 
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +66,7 @@ public class Personal_Information extends AppCompatActivity {
             //intent.putExtra(t_name,t_name);
             
             User_Infromation info =new User_Infromation(firstname,lastname);
-            pInformation.child(uid).child(t_name).setValue(info);
+            pInformation.child(uid).setValue(info);
 
             Toast.makeText(this,"Information Added",Toast.LENGTH_LONG).show();
             startActivity(intent);

@@ -72,7 +72,7 @@ public class Social_Connect extends AppCompatActivity {
     private CallbackManager callbackManager;
     FirebaseUser user;
 
-    DatabaseReference Userid = FirebaseDatabase.getInstance().getReference("Expert Basic Information");
+    DatabaseReference Userid = FirebaseDatabase.getInstance().getReference("Expert Email and Id");
 
     public static final String uidemail = "Email and Id";
     public static String email;
@@ -114,7 +114,7 @@ public class Social_Connect extends AppCompatActivity {
                             }else{
 
                                 UserIdSet userIdSet = new UserIdSet(email,id);
-                                Userid.child(id).child(uidemail).setValue(userIdSet);
+                                Userid.child(id).setValue(userIdSet);
                                 Toast.makeText(Social_Connect.this,"Id and email exits now.",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(Social_Connect.this,Personal_Information.class));
 
@@ -162,7 +162,7 @@ public class Social_Connect extends AppCompatActivity {
                             }else{
 
                                 UserIdSet userIdSet = new UserIdSet(email,id);
-                                Userid.child(id).child(uidemail).setValue(userIdSet);
+                                Userid.child(id).setValue(userIdSet);
                                 Toast.makeText(Social_Connect.this,"Id and email exits now.",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(Social_Connect.this,Personal_Information.class));
 

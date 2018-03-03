@@ -90,7 +90,7 @@ public class Main3Activity extends AppCompatActivity  implements
     public static String phone;
     public static final String ridphone = "Phone and Id";
 
-    DatabaseReference Userid = FirebaseDatabase.getInstance().getReference("Rider Basic Information");
+    DatabaseReference Userid = FirebaseDatabase.getInstance().getReference("Rider Phone and Id");
     DatabaseReference riderPRIMARYKEY = FirebaseDatabase.getInstance().getReference("Rider Primary Key");
 
     @Override
@@ -427,7 +427,7 @@ public class Main3Activity extends AppCompatActivity  implements
 
                         UserIdPhoneSet userIdSet = new UserIdPhoneSet(phone,rid);
                         UserIdSet riderPKey= new UserIdSet(rid);
-                        Userid.child(rid).child(ridphone).setValue(userIdSet);
+                        Userid.child(rid).setValue(userIdSet);
                         riderPRIMARYKEY.child(rid).setValue(riderPKey);
                         Toast.makeText(Main3Activity.this,"Id and email exits now.",Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(Main3Activity.this,Personal_Information.class));

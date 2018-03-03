@@ -90,7 +90,7 @@ public class Main2Activity extends AppCompatActivity  implements
     public static String phone;
     public static final String uidphone = "Phone and Id";
 
-    DatabaseReference Userid = FirebaseDatabase.getInstance().getReference("User Basic Information");
+    DatabaseReference Userid = FirebaseDatabase.getInstance().getReference("User Phone and Id");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -425,7 +425,7 @@ public class Main2Activity extends AppCompatActivity  implements
                     }else{
 
                         UserIdPhoneSet userIdSet = new UserIdPhoneSet(phone,uid);
-                        Userid.child(uid).child(uidphone).setValue(userIdSet);
+                        Userid.child(uid).setValue(userIdSet);
                         Toast.makeText(Main2Activity.this,"Id and email exits now.",Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(Main2Activity.this,Personal_Information.class));
                         finish();

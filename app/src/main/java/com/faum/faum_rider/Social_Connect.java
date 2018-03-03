@@ -73,7 +73,7 @@ public class Social_Connect extends AppCompatActivity {
     private CallbackManager callbackManager;
     FirebaseUser user;
 
-    DatabaseReference Userid = FirebaseDatabase.getInstance().getReference("Rider Basic Information");
+    DatabaseReference Userid = FirebaseDatabase.getInstance().getReference("Rider Email and Id");
     DatabaseReference riderPRIMARYKEY = FirebaseDatabase.getInstance().getReference("Rider Primary Key");
 
     public static final String uidemail = "Email and Id";
@@ -118,7 +118,7 @@ public class Social_Connect extends AppCompatActivity {
 
                                 UserIdSet userIdSet = new UserIdSet(email,rid);
                                 UserIdSet riderPKey= new UserIdSet(rid);
-                                Userid.child(rid).child(uidemail).setValue(userIdSet);
+                                Userid.child(rid).setValue(userIdSet);
                                 riderPRIMARYKEY.child(rid).setValue(riderPKey);
                                 Toast.makeText(Social_Connect.this,"Id and email exits now.",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(Social_Connect.this,Personal_Information.class));
@@ -170,7 +170,7 @@ public class Social_Connect extends AppCompatActivity {
 
                                 UserIdSet userIdSet = new UserIdSet(email,rid);
                                 UserIdSet riderPKey= new UserIdSet(rid);
-                                Userid.child(rid).child(uidemail).setValue(userIdSet);
+                                Userid.child(rid).setValue(userIdSet);
                                 riderPRIMARYKEY.child(rid).setValue(riderPKey);
                                 Toast.makeText(Social_Connect.this,"Id and email exits now.",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(Social_Connect.this,Personal_Information.class));

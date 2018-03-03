@@ -25,7 +25,7 @@ public class Contact_Infrormation extends Personal_Information{
     //String id = intent.getStringExtra(Personal_Information.id);
     //String t_name = intent.getStringExtra(Personal_Information.t_name);
 
-    DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("Expert Basic Information");
+    DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("Expert Contact Information");
     //DatabaseReference personalRef = FirebaseDatabase.getInstance().getReference("Expert");
     DatabaseReference keyRefrence = rootRef.child(id);
     //DatabaseReference tableRefrence = keyRefrence.
@@ -69,7 +69,7 @@ public class Contact_Infrormation extends Personal_Information{
             Contact_Info info =new Contact_Info(landline,cell,address);
             //pInformation = FirebaseDatabase.getInstance().getReference("Expert").child(id);
             //pInformation.child(tt_name).setValue(info);
-            keyRefrence.child(tt_name).setValue(info);
+            keyRefrence.setValue(info);
 
             Toast.makeText(this,"Information Added",Toast.LENGTH_LONG).show();
             startActivity(new Intent(Contact_Infrormation.this,MapsActivity.class));
