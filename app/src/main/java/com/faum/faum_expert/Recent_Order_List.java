@@ -77,6 +77,15 @@ public class Recent_Order_List extends AppCompatActivity {
                 mEditor.putString(getString(R.string.ORDER_QTY_EXPERT), confirm_order_database.getOrderQty());
                 mEditor.commit();
 
+                mEditor.putString(getString(R.string.DEAL_COOK_ID), confirm_order_database.cookerID);
+                mEditor.commit();
+                mEditor.putString(getString(R.string.DEAL_USER_ID), confirm_order_database.getUserID());
+                mEditor.commit();
+                mEditor.putString(getString(R.string.DEAL_DEAL_ID), confirm_order_database.getDealID());
+                mEditor.commit();
+                mEditor.putString(getString(R.string.DEAL_ORDER_ID), confirm_order_database.getOrderID());
+                mEditor.commit();
+
 
                 //intent.putExtra(ORDER_ID,confirm_order_database.getOrderID());
                 //intent.putExtra(COOKER_ID,confirm_order_database.getCookerID());

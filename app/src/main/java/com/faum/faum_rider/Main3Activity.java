@@ -420,7 +420,7 @@ public class Main3Activity extends AppCompatActivity  implements
                     if (dataSnapshot.exists()) {
                         // user already exists in db
                         Toast.makeText(Main3Activity.this,"Already user exits",Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(Main3Activity.this, User_sign.class));
+                        startActivity(new Intent(Main3Activity.this, Navigation_Drawer_Rider.class));
                         finish();
 
                     }else{

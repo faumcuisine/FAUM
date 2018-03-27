@@ -1,12 +1,20 @@
 package com.faum.faum_expert;
 
+import android.content.SharedPreferences;
 import android.location.Location;
+import android.preference.PreferenceManager;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.faum.faum_rider.*;
+import com.faum.faum_rider.Contact_Info;
+import com.faum.faum_rider.Contact_Infrormation;
+import com.faum.faum_user.*;
 import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
 import com.firebase.geofire.LocationCallback;
@@ -17,9 +25,13 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -32,6 +44,19 @@ public class RidersIDS extends AppCompatActivity {
 
     FirebaseUser cookerRefrence = FirebaseAuth.getInstance().getCurrentUser();
     DatabaseReference cookerLocationRefrence = FirebaseDatabase.getInstance().getReference("Expert Location Information");
+    DatabaseReference riderActiveRefrence = FirebaseDatabase.getInstance().getReference("Rider Active Confirmation");
+
+    DatabaseReference riderPersonalInformation = FirebaseDatabase.getInstance().getReference("Rider Personal Information");
+
+    DatabaseReference riderContactInformation = FirebaseDatabase.getInstance().getReference("Rider Contact Information");
+
+    DatabaseReference transactionConfirmationRider = FirebaseDatabase.getInstance().getReference("Transaction Confirmation for Rider");
+
+    DatabaseReference transactionConfirmationUser = FirebaseDatabase.getInstance().getReference("Transaction Confirmation for User");
+
+    DatabaseReference transactionConfirmationExpert = FirebaseDatabase.getInstance().getReference("Transaction Confirmation for Expert");
+
+    String riderFName,riderLName,riderCell;
 
     GeoFire geoFireCooker= new GeoFire(cookerLocationRefrence);
 
@@ -39,6 +64,8 @@ public class RidersIDS extends AppCompatActivity {
 
     public  static  List<Location> rLocations;
     public static List<String> rIDs;
+    public static List<String> activeRiderIDs;
+    public String riderid;
     //int riderCounter =0;
 
     Location cookerLOCATION;
@@ -49,8 +76,13 @@ public class RidersIDS extends AppCompatActivity {
     int indexValue = 0;
     public String closestRiderID;
 
+    public String userID;
 
-    TextView riderID;
+
+    TextView riderID,tvRiderFNAME,tvRiderLNAME,tvRiderCell;
+    Button btnRiderLocationLocation,btnRiderContact;
+
+    Boolean check = false;
 
 
     @Override
@@ -59,9 +91,17 @@ public class RidersIDS extends AppCompatActivity {
         setContentView(R.layout.activity_riders_ids2);
         riderID =(TextView)findViewById(R.id.tvRiderID);
 
+        tvRiderFNAME = (TextView)findViewById(R.id.tvRiderFNAME);
+        tvRiderLNAME = (TextView)findViewById(R.id.tvRiderLNAME);
+        tvRiderCell = (TextView)findViewById(R.id.tvRiderCell);
+
         rLocations = new ArrayList<>();
         rIDs =  new ArrayList<>();
+        activeRiderIDs = new ArrayList<>();
 
+        SharedPreferences mPrefrences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        userID =  mPrefrences.getString(getString(R.string.DEAL_USER_ID)," ");
 
         findingValues();
 
@@ -71,6 +111,7 @@ public class RidersIDS extends AppCompatActivity {
 
     public void findingValues(){
         try{
+            findingActiverRiderID();
             findingRiderID(new passignriderID() {
                 @Override
                 public void onCallback(String riderID) {
@@ -79,11 +120,26 @@ public class RidersIDS extends AppCompatActivity {
                     Log.d("Rider IDs",rIDs.toString());
                     passingRiderID(riderID, new listData() {
                         @Override
+                        public void onCallBack(Location list) {
+                            rLocations.add(list);
+                            Log.d("Rider Locations",rLocations.toString());
+                            if(rIDs.size()==rLocations.size()){
+                                findingNearestRider();
+                            }
+                            /*for(int i =1;i<=rIDs.size();i++){
+                                if(i==(rIDs.size())){
+                                    findingNearestRider();
+                                }
+                            }*/
+                        }
+                    });
+                    /*passingRiderID(riderID, new listData() {
+                        @Override
                         public void onCallBack(List<Location> list) {
                             Log.d("Rider Locations",list.toString());
                             findingNearestRider();
                         }
-                    });
+                    });*/
                 }
             });
             findingCookerLocation();
@@ -92,17 +148,43 @@ public class RidersIDS extends AppCompatActivity {
         }
     }
 
+    public void findingActiverRiderID(){
+        riderActiveRefrence.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot datas  : dataSnapshot.getChildren())
+                {
+                    try {
+                        check  = datas.getValue(Rider_Database.class).getRiderisAcvtive();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+
+                    } finally {
+
+                        if(check==true){
+                            riderid =   datas.getValue(Rider_Database.class).getRiderId();
+                            activeRiderIDs.addAll(Arrays.asList(riderid));
+                        }
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
     public void findingRiderID(final passignriderID myCallBack){
         riderPRIMARYKEY.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot riderSnapshot: dataSnapshot.getChildren()){
-                    try{
-
-                        String riderID= riderSnapshot.getKey();
+                    String riderID= riderSnapshot.getKey();
+                    if(activeRiderIDs.contains(riderID)) {
                         myCallBack.onCallback(riderID);
-                    }catch (Exception e){
-                        e.printStackTrace();
                     }
                 }
             }
@@ -123,10 +205,10 @@ public class RidersIDS extends AppCompatActivity {
                 riderLOCATION = new Location("");
                 riderLOCATION.setLatitude(riderID.latitude);
                 riderLOCATION.setLongitude(riderID.longitude);
-                rLocations.add(riderLOCATION);
+                //rLocations.add(riderLOCATION);
                 //Log.d("Rider location", riderLOCATION.toString());
 
-                myCallBack.onCallBack(rLocations);
+                myCallBack.onCallBack(riderLOCATION);
 
                 //riderCounter++;
             }
@@ -180,10 +262,11 @@ public class RidersIDS extends AppCompatActivity {
                     if(smallestDistance == -1 || distance < smallestDistance){
                         colsestRiderLocation = rlocation;
                         smallestDistance = distance;
-                        comparingValues();
+                        //comparingValues();
                         Log.d("Closet Rider Location",colsestRiderLocation.toString());
                     }
                 }
+                comparingValues();
             }catch (Exception e){
                 e.printStackTrace();
             }
@@ -193,7 +276,7 @@ public class RidersIDS extends AppCompatActivity {
         void onCallback(String riderID);
     }
     private interface listData{
-        void onCallBack(List<Location> list);
+        void onCallBack(Location list);
     }
     public void comparingValues(){
         try{
@@ -201,10 +284,75 @@ public class RidersIDS extends AppCompatActivity {
             Log.d("Index value Location",String.valueOf(indexValue));
             closestRiderID = rIDs.get(indexValue);
             Log.d("Index value IDS",closestRiderID);
+            findingRiderInformation();
             riderID.setText(closestRiderID);
         }catch (Exception e){
             e.printStackTrace();
         }
     }
+    public void findingRiderInformation(){
+
+        try{
+            riderID.setText(closestRiderID);
+            riderPersonalInformation.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    try{
+                        for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
+                            riderFName = dataSnapshot1.child(closestRiderID).getValue(com.faum.faum_rider.User_Infromation.class).getFirstname();
+                            riderLName = dataSnapshot1.child(closestRiderID).getValue(com.faum.faum_rider.User_Infromation.class).getLastname();
+                            tvRiderFNAME.setText(riderFName);
+                            tvRiderLNAME.setText(riderLName);
+                        }
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+            riderContactInformation.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
+                        try{
+                            riderCell = dataSnapshot1.child(closestRiderID).getValue(com.faum.faum_rider.Contact_Info.class).getRAddress();
+                            tvRiderCell.setText(riderCell);
+
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        transactionSuccessful();
+
+    }
+
+    public void transactionSuccessful(){
+        Transaction_Confirmation transaction_confirmation = new Transaction_Confirmation();
+        transaction_confirmation.Transaction_Confirmation(userID,cookerRefrence.getUid(),closestRiderID);
+
+        try{
+            transactionConfirmationRider.child(closestRiderID).child(closestRiderID).setValue(transaction_confirmation);
+            transactionConfirmationExpert.child(cookerRefrence.getUid()).child(cookerRefrence.getUid()).setValue(transaction_confirmation);
+            transactionConfirmationUser.child(userID).child(userID).setValue(transaction_confirmation);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
 }

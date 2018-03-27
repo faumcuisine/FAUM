@@ -66,7 +66,7 @@ public class Personal_Information extends AppCompatActivity {
             //intent.putExtra(t_name,t_name);
             
             User_Infromation info =new User_Infromation(firstname,lastname);
-            pInformation.child(rid).setValue(info);
+            pInformation.child(t_name).child(rid).setValue(info);
 
             Toast.makeText(this,"Information Added",Toast.LENGTH_LONG).show();
             startActivity(intent);

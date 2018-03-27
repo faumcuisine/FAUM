@@ -105,7 +105,7 @@ public class New_Deal_List extends AppCompatActivity {
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(New_Deal_List.this,"Databse error",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(New_Deal_List.this,"Databse error",Toast.LENGTH_SHORT).show();
 
             }
         });

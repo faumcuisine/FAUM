@@ -116,5 +116,12 @@
     <string name="ORDER_PRICE_EXPERT">package com.faum.faum_expert.orderPrice</string>
     <string name="ORDER_QTY_EXPERT">package com.faum.faum_expert.orderQty</string>
 
+    <string name="DEAL_COOK_ID">package com.faum.faum_expert.cookerID</string>
+    <string name="DEAL_USER_ID">package com.faum.faum_expert.userID</string>
+    <string name="DEAL_DEAL_ID">package com.faum.faum_expert.dealID</string>
+    <string name="DEAL_ORDER_ID">package com.faum.faum_expert.orderID</string>
+
+    <string name="title_activity_navigation__drawer__rider">FAUM</string>
+
 
 </resources>

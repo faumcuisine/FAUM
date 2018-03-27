@@ -111,7 +111,7 @@ public class Social_Connect extends AppCompatActivity {
                             if (dataSnapshot.exists()) {
                                 // user already exists in db
                                 Toast.makeText(Social_Connect.this,"Already user exits",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(Social_Connect.this, User_sign.class));
+                                startActivity(new Intent(Social_Connect.this, Navigation_Drawer_Rider.class));
                                 finish();
 
                             }else{
@@ -163,7 +163,7 @@ public class Social_Connect extends AppCompatActivity {
                             if (dataSnapshot.exists()) {
                                 // user already exists in db
                                 Toast.makeText(Social_Connect.this,"Already user exits",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(Social_Connect.this,User_sign.class));
+                                startActivity(new Intent(Social_Connect.this,Navigation_Drawer_Rider.class));
                                 finish();
 
                             }else{

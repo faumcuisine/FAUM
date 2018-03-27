@@ -4,17 +4,90 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.faum.faum_expert.RidersIDS">
+    tools:context="com.faum.faum_expert.RidersIDS"
+    tools:layout_editor_absoluteY="25dp"
+    tools:layout_editor_absoluteX="0dp">
 
     <TextView
         android:id="@+id/tvRiderID"
-        android:layout_width="300dp"
-        android:layout_height="87dp"
+        android:layout_width="0dp"
+        android:layout_height="31dp"
+        android:text="TextView"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="36dp"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="40dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp" />
+
+    <TextView
+        android:id="@+id/tvRiderFNAME"
+        android:layout_width="107dp"
+        android:layout_height="40dp"
         android:text="TextView"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/tvRiderLNAME"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="91dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="95dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvRiderID" />
+
+    <TextView
+        android:id="@+id/tvRiderLNAME"
+        android:layout_width="105dp"
+        android:layout_height="45dp"
+        android:text="TextView"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/tvRiderCell"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="41dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/tvRiderCell"
+        android:layout_width="111dp"
+        android:layout_height="43dp"
+        android:text="TextView"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/btnRiderLocation"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="55dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/btnRiderContact"
+        android:layout_width="233dp"
+        android:layout_height="48dp"
+        android:text="Call Rider"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="57dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/btnRiderLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="view rider location on map"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/btnRiderContact"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="9dp"
+        app:layout_constraintLeft_toLeftOf="@+id/btnRiderContact" />
 </android.support.constraint.ConstraintLayout>

@@ -11,6 +11,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.faum.faum_expert.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import static com.faum.faum_expert.RidersIDS.rIDs;
 
 public class Recent_Order_Data extends AppCompatActivity {
 
@@ -49,6 +53,13 @@ public class Recent_Order_Data extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Recent_Order_Data.this,RidersIDS.class));
+                /*RidersIDS ridersIDS = new RidersIDS();
+                ridersIDS.findingValues();
+                try{
+                    //rIDs
+                }catch (Exception e){
+                    e.printStackTrace();
+                }*/
             }
         });
     }

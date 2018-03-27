@@ -206,7 +206,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         geoFire.setLocation(rid, new GeoLocation(mLastLocation.getLatitude(),mLastLocation.getLongitude()));
 
-        startActivity(new Intent(MapsActivity.this, User_sign.class));
+        startActivity(new Intent(MapsActivity.this, Navigation_Drawer_Rider.class));
 
         //stop location updates
         if (mGoogleApiClient != null) {
@@ -338,7 +338,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             geoFire.setLocation(rid, new GeoLocation(mLastLocation.getLatitude(),mLastLocation.getLongitude()));
 
-            startActivity(new Intent(MapsActivity.this, User_sign.class));
+            startActivity(new Intent(MapsActivity.this, Navigation_Drawer_Rider.class));
 
 
 

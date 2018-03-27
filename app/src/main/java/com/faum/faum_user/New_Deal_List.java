@@ -214,9 +214,6 @@ public class New_Deal_List extends AppCompatActivity {
                     }catch (Exception e){
                         e.printStackTrace();
                     }finally {
-                        DEAL_ESTIMATEDTIME="60";
-                        DEAL_PRICE = "700";
-                        DEAL_SIZE = "10";
                         mEditor.putString(getString(R.string.DEAL_ESTIMATEDTIME), DEAL_ESTIMATEDTIME);
                         mEditor.commit();
 
@@ -346,11 +343,7 @@ public class New_Deal_List extends AppCompatActivity {
                     }catch (Exception e){
                         e.printStackTrace();
                     }finally {
-                        DEAL_DAYS_MONDAY = "Available";
-                        DEAL_DAYS_TUESDAY = "Available";
-                        DEAL_DAYS_WEDNESDAY = "Not-Available";
-                        DEAL_DAYS_THURSDAY = "Not-Available";
-                        DEAL_DAYS_FRIDAY = "Not-Available";
+
                         mEditor.putString(getString(R.string.DEAL_DAYS_MONDAY), DEAL_DAYS_MONDAY);
                         mEditor.commit();
 
@@ -426,7 +419,7 @@ public class New_Deal_List extends AppCompatActivity {
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(New_Deal_List.this,"Databse error",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(New_Deal_List.this,"Databse error",Toast.LENGTH_SHORT).show();
 
             }
         });

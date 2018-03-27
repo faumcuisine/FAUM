@@ -112,7 +112,12 @@
         <activity
             android:name="com.faum.faum_rider.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".RidersIDS"></activity>
+        <activity android:name=".RidersIDS" />
+        <activity android:name="com.faum.faum_rider.Rider_isActive" />
+        <activity
+            android:name="com.faum.faum_rider.Navigation_Drawer_Rider"
+            android:label="@string/title_activity_navigation__drawer__rider"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
