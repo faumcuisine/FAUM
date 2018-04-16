@@ -94,6 +94,7 @@ public class Navigation_Drawer_User extends AppCompatActivity
 
         } else if (id == R.id.nav_slideshow) {
 
+
         } else if (id == R.id.nav_manage) {
             Toast.makeText(this,"You are in log out activity",Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this,User_sign.class));

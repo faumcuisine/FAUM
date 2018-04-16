@@ -102,6 +102,9 @@ public class Navigation_Drawer extends AppCompatActivity
             startActivity(new Intent(this,User_sign.class));
 
         }
+        else if (id == R.id.nav_share) {
+
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

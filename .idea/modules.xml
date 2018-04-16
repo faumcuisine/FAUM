@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FAUM.iml" filepath="$PROJECT_DIR$/FAUM.iml" />
       <module fileurl="file://$PROJECT_DIR$/FAUM-Expert.iml" filepath="$PROJECT_DIR$/FAUM-Expert.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FAUMS.iml" filepath="$PROJECT_DIR$/FAUMS.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

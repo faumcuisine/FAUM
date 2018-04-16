@@ -122,6 +122,7 @@
     <string name="DEAL_ORDER_ID">package com.faum.faum_expert.orderID</string>
 
     <string name="title_activity_navigation__drawer__rider">FAUM</string>
+    <string name="title_activity_chef_and_user_location">Map</string>
 
 
 </resources>

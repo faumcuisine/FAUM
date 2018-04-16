@@ -92,6 +92,7 @@ public class Navigation_Drawer_Rider extends AppCompatActivity
             startActivity(new Intent(Navigation_Drawer_Rider.this,User_sign.class));
 
         } else if (id == R.id.nav_manage) {
+            startActivity(new Intent(Navigation_Drawer_Rider.this,user_chef_info.class));
 
         } else if (id == R.id.nav_share) {
 

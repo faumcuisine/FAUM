@@ -24,4 +24,5 @@ public class Rider_Database {
     public Boolean getRiderisAcvtive() {
         return riderisAcvtive;
     }
+
 }

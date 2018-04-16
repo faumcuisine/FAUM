@@ -177,7 +177,6 @@ public class MapsActivityForCooker extends FragmentActivity implements OnMapRead
             Polyline polyline = mMap.addPolyline(polylineOptions);
 
             */
-
             PolylineOptions polylineoptions = new PolylineOptions()
                     .add(new LatLng(cookerLocation.latitude,cookerLocation.longitude))
                     .add(new LatLng(userLocation.latitude,userLocation.longitude))

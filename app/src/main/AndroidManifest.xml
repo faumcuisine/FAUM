@@ -117,7 +117,11 @@
         <activity
             android:name="com.faum.faum_rider.Navigation_Drawer_Rider"
             android:label="@string/title_activity_navigation__drawer__rider"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name="com.faum.faum_rider.user_chef_info" />
+        <activity
+            android:name="com.faum.faum_rider.chefAndUserLocation"
+            android:label="@string/title_activity_chef_and_user_location"></activity>
     </application>
 
 </manifest>
