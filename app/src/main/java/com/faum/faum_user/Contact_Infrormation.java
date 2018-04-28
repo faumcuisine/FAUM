@@ -72,7 +72,7 @@ public class Contact_Infrormation extends Personal_Information{
             //pInformation.child(tt_name).setValue(info);
             keyRefrence.setValue(info);
 
-            Toast.makeText(this,"Information Added",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Your Information Has Submitted",Toast.LENGTH_LONG).show();
             startActivity(new Intent(Contact_Infrormation.this,MapsActivity.class));
             finish();
         }

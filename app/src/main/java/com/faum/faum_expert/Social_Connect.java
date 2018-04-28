@@ -116,7 +116,7 @@ public class Social_Connect extends AppCompatActivity {
                                 UserIdSet userIdSet = new UserIdSet(email,id);
                                 Userid.child(id).setValue(userIdSet);
                                 Toast.makeText(Social_Connect.this,"Id and email exits now.",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(Social_Connect.this,Personal_Information.class));
+                                startActivity(new Intent(Social_Connect.this,Contact_Infrormation.class));
 
                             }
                         }
@@ -164,7 +164,7 @@ public class Social_Connect extends AppCompatActivity {
                                 UserIdSet userIdSet = new UserIdSet(email,id);
                                 Userid.child(id).setValue(userIdSet);
                                 Toast.makeText(Social_Connect.this,"Id and email exits now.",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(Social_Connect.this,Personal_Information.class));
+                                startActivity(new Intent(Social_Connect.this,Contact_Infrormation.class));
 
                             }
                         }

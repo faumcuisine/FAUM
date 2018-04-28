@@ -46,9 +46,7 @@ public class User_sign extends AppCompatActivity {
 
         mLogOutBtn= (Button) findViewById(R.id.btnLogout);
 
-        mLogOutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+
 
                 if(facebookCheck==true) {
                     Toast.makeText(User_sign.this,"check",Toast.LENGTH_SHORT).show();
@@ -60,8 +58,6 @@ public class User_sign extends AppCompatActivity {
                 }
                 //startActivity(new Intent(User_sign.this,MainActivity.class));
 
-            }
-        });
     }
 
     @Override

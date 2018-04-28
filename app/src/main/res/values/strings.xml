@@ -123,6 +123,7 @@
 
     <string name="title_activity_navigation__drawer__rider">FAUM</string>
     <string name="title_activity_chef_and_user_location">Map</string>
+    <string name="title_activity_rider__user__location">Map</string>
 
 
 </resources>

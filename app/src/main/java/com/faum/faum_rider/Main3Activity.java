@@ -430,7 +430,7 @@ public class Main3Activity extends AppCompatActivity  implements
                         Userid.child(rid).setValue(userIdSet);
                         riderPRIMARYKEY.child(rid).setValue(riderPKey);
                         Toast.makeText(Main3Activity.this,"Id and email exits now.",Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(Main3Activity.this,Personal_Information.class));
+                        startActivity(new Intent(Main3Activity.this,Contact_Infrormation.class));
                         finish();
 
                     }

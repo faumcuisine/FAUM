@@ -5,29 +5,29 @@ package com.faum.faum_rider;
  */
 
 public class Contact_Info {
-    private String Landline,Cell,RAddress;
+    private String landline,cell,raddress;
 
     public Contact_Info(){
 
     }
 
-    public Contact_Info(String land,String cel, String addr){
-        this.Cell = cel;
-        this.Landline = land;
-        this.RAddress = addr;
+    public Contact_Info(String landline,String cell, String raddress){
+        this.cell = cell;
+        this.landline = landline;
+        this.raddress = raddress;
     }
 
 
     public String getLandline() {
-        return Landline;
+        return landline;
     }
 
     public String getCell() {
-        return Cell;
+        return cell;
     }
 
     public String getRAddress() {
-        return RAddress;
+        return raddress;
     }
 }
 

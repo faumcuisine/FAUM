@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:padding="0dp"
                 android:layout_marginTop="40dp"
-                android:text="Contact Information"
+                android:text="Personal Information"
                 android:gravity="center"
                 android:theme="@style/ThemeOverlay.MyTitleText" />
 
@@ -45,13 +45,13 @@
                 android:id="@+id/etLandline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Landline Number"
+                android:hint="Enter Your Name"
                 android:gravity="left"
                 android:background="@drawable/round"
                 android:textColor="#d55d5d"
                 android:padding="10dp"
                 android:layout_marginTop="100dp"
-                android:inputType="phone"/>
+                android:inputType="textPostalAddress"/>
 
 
 

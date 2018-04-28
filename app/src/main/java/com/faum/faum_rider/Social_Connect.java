@@ -121,7 +121,7 @@ public class Social_Connect extends AppCompatActivity {
                                 Userid.child(rid).setValue(userIdSet);
                                 riderPRIMARYKEY.child(rid).setValue(riderPKey);
                                 Toast.makeText(Social_Connect.this,"Id and email exits now.",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(Social_Connect.this,Personal_Information.class));
+                                startActivity(new Intent(Social_Connect.this,Contact_Infrormation.class));
                                 finish();
 
                             }
@@ -173,7 +173,7 @@ public class Social_Connect extends AppCompatActivity {
                                 Userid.child(rid).setValue(userIdSet);
                                 riderPRIMARYKEY.child(rid).setValue(riderPKey);
                                 Toast.makeText(Social_Connect.this,"Id and email exits now.",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(Social_Connect.this,Personal_Information.class));
+                                startActivity(new Intent(Social_Connect.this,Contact_Infrormation.class));
                                 finish();
 
                             }

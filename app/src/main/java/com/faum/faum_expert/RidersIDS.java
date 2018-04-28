@@ -295,33 +295,18 @@ public class RidersIDS extends AppCompatActivity {
 
         try{
             riderID.setText(closestRiderID);
-            riderPersonalInformation.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    try{
-                        for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
-                            riderFName = dataSnapshot1.child(closestRiderID).getValue(com.faum.faum_rider.User_Infromation.class).getFirstname();
-                            riderLName = dataSnapshot1.child(closestRiderID).getValue(com.faum.faum_rider.User_Infromation.class).getLastname();
-                            tvRiderFNAME.setText(riderFName);
-                            tvRiderLNAME.setText(riderLName);
-                        }
-                    }catch (Exception e){
-                        e.printStackTrace();
-                    }
-                }
 
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
             riderContactInformation.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
                         try{
                             riderCell = dataSnapshot1.child(closestRiderID).getValue(com.faum.faum_rider.Contact_Info.class).getRAddress();
+                            riderFName = dataSnapshot1.child(closestRiderID).getValue(com.faum.faum_rider.Contact_Info.class).getCell();
+                            riderLName = dataSnapshot1.child(closestRiderID).getValue(com.faum.faum_rider.Contact_Info.class).getLandline();
+                            tvRiderFNAME.setText(riderFName);
                             tvRiderCell.setText(riderCell);
+                            tvRiderLNAME.setText(riderLName);
 
                         }catch (Exception e){
                             e.printStackTrace();

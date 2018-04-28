@@ -427,7 +427,7 @@ public class Main2Activity extends AppCompatActivity  implements
                         UserIdPhoneSet userIdSet = new UserIdPhoneSet(phone,uid);
                         Userid.child(uid).setValue(userIdSet);
                         Toast.makeText(Main2Activity.this,"Id and email exits now.",Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(Main2Activity.this,Personal_Information.class));
+                        startActivity(new Intent(Main2Activity.this,Contact_Infrormation.class));
                         finish();
 
                     }

@@ -29,9 +29,9 @@ import static com.faum.faum_user.MapsActivityForCooker.userLocation;
 
 public class Deal_Invoice extends AppCompatActivity {
 
-    Button btnCoOrder,btnCall,btnText,btnCalculate;
+    Button btnCoOrder,btnCall,btnText,btnCalculate,btnch;
     EditText etQty;
-    TextView tvTotal;
+    TextView tvTotal,check;
     int userQty;
     int totalPrice;
     int NewDealPrice;
@@ -39,7 +39,7 @@ public class Deal_Invoice extends AppCompatActivity {
 
 
 
-    DatabaseReference expertContactRefrence = FirebaseDatabase.getInstance().getReference("Expert Basic Information");
+    DatabaseReference expertContactRefrence = FirebaseDatabase.getInstance().getReference("Expert Contact Information");
 
     DatabaseReference expertOrderConfirmedRefrence = FirebaseDatabase.getInstance().getReference("Expert Confirmed Order");
     DatabaseReference userOrderConfirmedRefrence = FirebaseDatabase.getInstance().getReference("User Confirmed Order");
@@ -50,7 +50,7 @@ public class Deal_Invoice extends AppCompatActivity {
     GeoFire geoFireUser = new GeoFire(userOrderRefrence);
 
     String phoneNumber;
-
+    public static String orderID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,9 +58,11 @@ public class Deal_Invoice extends AppCompatActivity {
 
         btnCoOrder = (Button)findViewById(R.id.btnCoOrder);
         btnCall = (Button)findViewById(R.id.btnCall);
+        btnch = (Button)findViewById(R.id.btncheck);
         btnText = (Button)findViewById(R.id.btnText);
         btnCalculate = (Button)findViewById(R.id.btnCalculate);
         tvTotal = (TextView)findViewById(R.id.tvTotal);
+        check = (TextView)findViewById(R.id.tvcheck);
         etQty = (EditText)findViewById(R.id.etQty);
 
         mPrefrences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -99,7 +101,7 @@ public class Deal_Invoice extends AppCompatActivity {
                     }else{
 
                         totalPrice = (NewDealPrice * userQty);
-                        tvTotal.setText(String.valueOf("Rs " + totalPrice));
+                        tvTotal.setText(String.valueOf("Rs. " + totalPrice));
                         btnCoOrder.setVisibility(View.VISIBLE);
                     }
 
@@ -124,7 +126,7 @@ public class Deal_Invoice extends AppCompatActivity {
                 btnCall.setVisibility(View.VISIBLE);
                 btnText.setVisibility(View.VISIBLE);
 
-                String orderID = userOrderRefrence.push().getKey();
+                 orderID = userOrderRefrence.push().getKey();
                 String cookerID = mPrefrences.getString(getString(R.string.COOKER_ID)," ");
                 String userID = uid;
                 String dealID = mPrefrences.getString(getString(R.string.DEAL_ID)," ");
@@ -133,6 +135,7 @@ public class Deal_Invoice extends AppCompatActivity {
                 String dealName = mPrefrences.getString(getString(R.string.DEAL_NAME)," ");
                 String dealCategory = mPrefrences.getString(getString(R.string.DEAL_CATEGORY)," ");
 
+                check.setText(orderID);
                 Confirm_Order_Database data = new Confirm_Order_Database(orderID,cookerID,userID,dealID,orderPrice,orderQty,dealName,dealCategory);
 
                 userOrderRefrence.child(orderID).setValue(data);
@@ -147,19 +150,24 @@ public class Deal_Invoice extends AppCompatActivity {
                 //geoFireCooker.setLocation(cookerID,new GeoLocation(cookerLocation.latitude,cookerLocation.longitude));
 
                 Toast.makeText(getApplicationContext(),"Order Confirmed",Toast.LENGTH_LONG).show();
+
             }
         });
         btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-
-                expertContactRefrence.child(mPrefrences.getString(getString(R.string.COOKER_ID)," ")).addListenerForSingleValueEvent(new ValueEventListener() {
+                Intent intent = new Intent(Deal_Invoice.this,notification.class);
+                startActivity(intent);
+               /* expertContactRefrence.child(mPrefrences.getString(getString(R.string.COOKER_ID)," ")).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for(DataSnapshot datas :dataSnapshot.getChildren()){
                             Toast.makeText(getApplicationContext(),datas.toString(),Toast.LENGTH_LONG).show();
-                            phoneNumber = datas.getValue(Contact_Info.class).getCell();
+                            //String checking = datas.getValue(Contact_Info.class).getCell();
+
+                            //check.setText(checking);
+
                         }
                     }
 
@@ -167,13 +175,9 @@ public class Deal_Invoice extends AppCompatActivity {
                     public void onCancelled(DatabaseError databaseError) {
 
                     }
-                });
+                }); */
 
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:" + phoneNumber));
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-                }
+
             }
         });
 

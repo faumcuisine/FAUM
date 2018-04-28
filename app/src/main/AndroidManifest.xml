@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.Manifest.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.SEND_SMS" />
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -104,6 +104,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".FireBaseMsgService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
         <activity android:name="com.faum.faum_rider.Main3Activity" />
         <activity android:name="com.faum.faum_rider.Social_Connect" />
         <activity android:name="com.faum.faum_rider.User_sign" />
@@ -121,7 +130,15 @@
         <activity android:name="com.faum.faum_rider.user_chef_info" />
         <activity
             android:name="com.faum.faum_rider.chefAndUserLocation"
-            android:label="@string/title_activity_chef_and_user_location"></activity>
+            android:label="@string/title_activity_chef_and_user_location" />
+        <activity android:name=".notify" />
+        <activity android:name="com.faum.faum_rider.forUserInfo" />
+        <activity
+            android:name="com.faum.faum_rider.Rider_User_Location"
+            android:label="@string/title_activity_rider__user__location" />
+        <activity android:name="com.faum.faum_user.notification" />
+        <activity android:name=".notifyToRider" />
+        <activity android:name=".recentOrderList2"></activity>
     </application>
 
 </manifest>
