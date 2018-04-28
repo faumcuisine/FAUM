@@ -16,8 +16,6 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.faum.faum_user.*;
-import com.faum.faum_user.RecentList;
-import com.faum.faum_user.Recent_Order_List;
 
 public class Navigation_Drawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -88,23 +86,20 @@ public class Navigation_Drawer extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-     //       Toast.makeText(this,"You are in New Deal",Toast.LENGTH_SHORT).show();
+  //          Toast.makeText(this,"You are in New Deal",Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this,New_Deal.class));
         } else if (id == R.id.nav_gallery) {
 
-       //     Toast.makeText(this,"You are in New Deal List",Toast.LENGTH_SHORT).show();
+    //        Toast.makeText(this,"You are in New Deal List",Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this,New_Deal_List.class));
 
         } else if (id == R.id.nav_slideshow) {
-           // Toast.makeText(this,"You are in Recent order activity",Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(this,Recent_Order_List.class));
+      //      Toast.makeText(this,"You are in Recent order activity",Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, Recent_Order_List.class));
 
         } else if (id == R.id.nav_manage) {
-         //   Toast.makeText(this,"You are in log out activity",Toast.LENGTH_SHORT).show();
+        //    Toast.makeText(this,"You are in log out activity",Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this,User_sign.class));
-
-        }
-        else if (id == R.id.nav_share) {
 
         }
 

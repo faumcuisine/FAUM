@@ -32,7 +32,6 @@ public class Recent_Order_List extends AppCompatActivity {
 
     DatabaseReference expertOrderConfirmedRefrence = FirebaseDatabase.getInstance().getReference("Expert Confirmed Order");
 
-
     //public static final String DEAL_NAME="";
     //public static final String DEAL_CATEGORY="";
     //public static final String ORDER_PRICE="";

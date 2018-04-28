@@ -87,7 +87,7 @@ public class Navigation_Drawer_Rider extends AppCompatActivity
             // Handle the camera action
             startActivity(new Intent(Navigation_Drawer_Rider.this,Rider_isActive.class));
         } else if (id == R.id.nav_gallery) {
-
+            startActivity(new Intent(Navigation_Drawer_Rider.this,notifytochef.class));
         } else if (id == R.id.nav_slideshow) {
             startActivity(new Intent(Navigation_Drawer_Rider.this,User_sign.class));
 
