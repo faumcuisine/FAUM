@@ -60,7 +60,7 @@
 
     <style name="checkBoxTheme" parent="Theme.AppCompat.Light">
         <item name="colorControlNormal">#ed8f4f</item>
-        <item name="colorControlActivated">#d55d5d</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
     </style>
 
 </resources>

@@ -1,215 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.faum.faum_user.Deal_Detail_one"
-    tools:layout_editor_absoluteY="25dp"
-    android:background="@drawable/k"
-    tools:layout_editor_absoluteX="0dp">
+    android:orientation="vertical"
+    android:weightSum="6">
 
-    <TextView
-        android:id="@+id/tvDealDetailTile"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:text="Deal Detail"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="6.0"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical"
+        android:weightSum="1">
 
-        android:background="#B7950B"
-        android:theme="@style/ThemeOverlay.MyTitleText"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="1dp"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvDDOTileCategory"
-        android:layout_width="0dp"
-        android:layout_height="28dp"
-        android:text="Deal Category"
-        android:gravity="center"
 
-        android:textColor="#F7F9F9"
-        android:textColorHighlight="#F7F9F9"
-        android:shadowColor="#D35400"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/tvDDOTileDealDescton"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="159dp"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="159dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvDealDetailTile" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1.0">
 
-    <TextView
-        android:id="@+id/tvDDDishNamevalue"
-        android:layout_width="0dp"
+            <TextView
+                android:id="@+id/tvDealDetailTile"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Deal Detail"
+                android:background="@color/colorPrimary"
+                android:theme="@style/ThemeOverlay.MyTitleText" />
 
-        android:layout_height="29dp"
-        android:textColor="#F7F9F9"
-        android:textColorHighlight="#F7F9F9"
-        android:shadowColor="#D35400"
-        android:gravity="center"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="@+id/tvDDOTileDealDescton"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="66dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvDDCategoryvalue"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="67dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
 
-    <TextView
-        android:id="@+id/tvDDOTileDealDescton"
-        android:layout_width="0dp"
-        android:layout_height="31dp"
-        android:text="Dish Description"
-        android:textColor="#F7F9F9"
-        android:textColorHighlight="#F7F9F9"
-        android:shadowColor="#D35400"
-        android:gravity="center"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="@+id/btnDealDetailOne"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="131dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvDDCategoryvalue"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="130dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp"
+            android:weightSum="1.0">
 
-    <TextView
-        android:id="@+id/tvDDDishDescvalue"
-        android:layout_width="0dp"
-        android:layout_height="26dp"
-        android:textColor="#F7F9F9"
-        android:textColorHighlight="#F7F9F9"
-        android:shadowColor="#D35400"
-        android:gravity="center"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="2dp"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="163dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp" />
+            <TextView
+                android:id="@+id/tvDDOTileCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Deal Category"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:textColorHighlight="#F7F9F9"
+                android:shadowColor="#D35400"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
-    <TextView
-        android:id="@+id/tvDDNamevalue"
-        android:layout_width="0dp"
-        android:layout_height="32dp"
-        android:gravity="center"
-        android:textColor="#F7F9F9"
-        android:textColorHighlight="#F7F9F9"
-        android:shadowColor="#D35400"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="2dp"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/tvDDOTileCategory"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="30dp"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvDDOTileName"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp" />
 
-    <TextView
-        android:id="@+id/tvDDOTileName"
-        android:layout_width="0dp"
-        android:layout_height="31dp"
-        android:text="Deal Name"
-        android:textColor="#F7F9F9"
-        android:textColorHighlight="#F7F9F9"
-        android:shadowColor="#D35400"
-        android:gravity="center"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="@+id/tvDDOTileCategory"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="78dp"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="79dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="1dp"
-        android:layout_marginRight="1dp" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvDDOTileDishName"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:text="Dish Name"
-        android:textColor="#F7F9F9"
-        android:gravity="center"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/tvDDOTileDealDescton"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="64dp"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="65dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvDDCategoryvalue" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1.0">
 
-    <TextView
-        android:id="@+id/tvDDCategoryvalue"
-        android:layout_width="0dp"
-        android:layout_height="28dp"
-        android:gravity="center"
-        android:textColor="#F7F9F9"
-        android:textColorHighlight="#F7F9F9"
-        android:shadowColor="#D35400"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="@+id/tvDDDishDescvalue"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="188dp"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="188dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/tvDDCategoryvalue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="category"
+                android:shadowColor="#D35400" />
 
-    <Button
-        android:id="@+id/btnDealDetailOne"
-        android:layout_width="206dp"
-        android:layout_height="48dp"
-        android:text="Deal Price"
-        android:textColor="#F7F9F9"
 
-        android:background="#B7950B"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginEnd="65dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="56dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvDDDishDescvalue"
-        android:layout_marginBottom="59dp"
-        android:layout_marginRight="65dp" />
-</android.support.constraint.ConstraintLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp"
+            android:weightSum="1.0">
+
+            <TextView
+                android:id="@+id/tvDDOTileDealDescton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dish Description"
+                android:textColor="@color/colorPrimary"
+                android:textColorHighlight="#F7F9F9"
+                android:shadowColor="#D35400"
+                android:gravity="center"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1.0">
+
+            <TextView
+                android:id="@+id/tvDDDishDescvalue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:gravity="center"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp"
+            android:weightSum="1.0">
+
+            <TextView
+                android:id="@+id/tvDDOTileName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Deal Name"
+                android:textColor="@color/colorPrimary"
+                android:textColorHighlight="@color/colorPrimary"
+                android:shadowColor="#D35400"
+                android:gravity="center"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1.0">
+
+            <TextView
+                android:id="@+id/tvDDNamevalue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Deal Name" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp"
+            android:weightSum="1.0">
+
+            <TextView
+                android:id="@+id/tvDDOTileDishName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dish Name"
+                android:textColor="@color/colorPrimary"
+                android:gravity="center"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1.0">
+
+            <TextView
+                android:id="@+id/tvDDDishNamevalue"
+                android:layout_width="match_parent"
+                android:text="Dish Name"
+                android:layout_height="wrap_content"
+                android:gravity="center"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp"
+            android:weightSum="1.0">
+
+            <Button
+                android:id="@+id/btnDealDetailOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Deal Price"
+                android:textColor="@drawable/buttontext"
+                android:background="@drawable/hover"/>
+
+
+            </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

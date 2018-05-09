@@ -58,11 +58,11 @@ public class Deal_Invoice extends AppCompatActivity {
 
         btnCoOrder = (Button)findViewById(R.id.btnCoOrder);
         btnCall = (Button)findViewById(R.id.btnCall);
-        btnch = (Button)findViewById(R.id.btncheck);
+        //btnch = (Button)findViewById(R.id.btncheck);
         btnText = (Button)findViewById(R.id.btnText);
         btnCalculate = (Button)findViewById(R.id.btnCalculate);
         tvTotal = (TextView)findViewById(R.id.tvTotal);
-        check = (TextView)findViewById(R.id.tvcheck);
+        //check = (TextView)findViewById(R.id.tvcheck);
         etQty = (EditText)findViewById(R.id.etQty);
 
         mPrefrences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -135,7 +135,7 @@ public class Deal_Invoice extends AppCompatActivity {
                 String dealName = mPrefrences.getString(getString(R.string.DEAL_NAME)," ");
                 String dealCategory = mPrefrences.getString(getString(R.string.DEAL_CATEGORY)," ");
 
-                check.setText(orderID);
+                //check.setText(orderID);
                 Confirm_Order_Database data = new Confirm_Order_Database(orderID,cookerID,userID,dealID,orderPrice,orderQty,dealName,dealCategory);
 
                 userOrderRefrence.child(orderID).setValue(data);

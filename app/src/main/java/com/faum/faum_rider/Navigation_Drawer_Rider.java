@@ -98,8 +98,6 @@ public class Navigation_Drawer_Rider extends AppCompatActivity
 
             startActivity(new Intent(Navigation_Drawer_Rider.this,user_chef_info.class));
 
-        } else if (id == R.id.nav_send) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

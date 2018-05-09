@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -142,7 +143,7 @@ public class Social_Connect extends AppCompatActivity {
 
 
         mFacebookBtn = (LoginButton)findViewById(R.id.login_button);    //for facebook
-        mGoogleBtn=(SignInButton)findViewById(R.id.googlebtn);  //for googe verification
+        mGoogleBtn= (SignInButton) findViewById(R.id.googlebtn);  //for googe verification
 
         callbackManager = CallbackManager.Factory.create(); //for facebook
 

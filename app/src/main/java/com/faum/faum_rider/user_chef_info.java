@@ -53,9 +53,9 @@ public class user_chef_info extends AppCompatActivity {
                             String name = dataSnapshot.child("landline").getValue().toString();
                             String num = dataSnapshot.child("cell").getValue().toString();
                             String address = dataSnapshot.child("raddress").getValue().toString();
-                            tvCookName.setText("Chef Name"+ name);
-                            tvCookNum.setText("Number "+ num);
-                            tvCookAddress.setText("Address "+ address);
+                            tvCookName.setText("Chef Name: "+ name);
+                            tvCookNum.setText("Number: "+ num);
+                            tvCookAddress.setText("Address: "+ address);
                         }
 
                         @Override

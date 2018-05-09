@@ -1,30 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back"
     tools:context="com.faum.faum_expert.User_sign"
-    tools:layout_editor_absoluteY="25dp"
-    tools:layout_editor_absoluteX="0dp">
+    android:orientation="vertical"
+    android:weightSum="6">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="6.0"
+        android:background="@drawable/food1"
+        android:orientation="vertical"
+        android:weightSum="1">
 
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="0dp"
-        android:layout_height="68dp"
-        android:text="Logout"
-        android:textColor="@drawable/buttontext"
-        android:background="@drawable/hover"
-        android:layout_marginStart="36dp"
-        android:layout_marginEnd="36dp"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="111dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="36dp"
-        android:layout_marginRight="36dp" />
-</android.support.constraint.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1.0">
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="258dp"
+            android:layout_height="66dp"
+            android:layout_marginBottom="111dp"
+            android:layout_marginEnd="37dp"
+            android:layout_marginLeft="39dp"
+            android:layout_marginRight="36dp"
+            android:layout_marginStart="69dp"
+            android:layout_marginTop="446dp"
+            android:background="@drawable/hover"
+            android:text="Logout"
+            android:textColor="@drawable/buttontext" />
+    </LinearLayout>
+</LinearLayout>

@@ -11,7 +11,7 @@
 
 
     <LinearLayout
-        android:background="#f5d6d6"
+        android:background="@color/colorPrimaryDark"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6.0"
@@ -47,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/round"
-                android:textColor="#d55d5d"
+                android:textColor="@color/colorPrimary"
                 android:padding="10dp"
                 android:layout_marginTop="80dp"
                 android:gravity="left"
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:background="@drawable/round"
-                android:textColor="#d55d5d"
+                android:textColor="@color/colorPrimary"
                 android:padding="10dp"
                 android:hint="Last Name"
                 android:layout_marginTop="80dp"
@@ -81,7 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email Address"
-                android:textColor="#d55d5d"
+                android:textColor="@color/colorPrimary"
                 android:gravity="left"
                 android:layout_marginTop="110dp"
                 android:inputType="textEmailAddress"/>
