@@ -86,16 +86,14 @@
 
         <Button
             android:id="@+id/btnBooKRider"
-            android:layout_width="298dp"
-            android:layout_height="53dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Book Rider"
             android:textColor="@drawable/buttontext"
             android:background="@drawable/hover"
-            android:layout_marginStart="46dp"
             android:layout_marginEnd="1dp"
             android:layout_marginTop="-110dp"
             android:layout_marginBottom="60dp"
-            android:layout_marginLeft="89dp"
             android:layout_marginRight="1dp" />
 
     </LinearLayout>

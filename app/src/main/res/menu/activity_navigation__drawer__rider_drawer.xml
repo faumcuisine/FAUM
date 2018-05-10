@@ -9,11 +9,11 @@
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Notify to chef" />
+            android:title="Notify to Chef" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Logout" />
+            android:title="Notify to User" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
@@ -22,6 +22,14 @@
             android:id="@+id/nav_share"
             android:icon="@drawable/ic_menu_share"
             android:title="View Chef Location" />
+        <item
+            android:id="@+id/nav_location"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Update your Location" />
+        <item
+            android:id="@+id/nav_signout"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Logout" />
     </group>
 
 

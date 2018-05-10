@@ -33,6 +33,13 @@ public class forUserInfo extends AppCompatActivity {
         tvCookNum = (TextView)findViewById(R.id.tv2);
         tvCookAddress = (TextView)findViewById(R.id.tv3);
         GotoCookerMap = (Button)findViewById(R.id.gotoCookerMap);
+
+        tvCookName.setText("No Delivery");
+
+        tvCookNum.setVisibility(View.INVISIBLE);
+        tvCookAddress.setVisibility(View.INVISIBLE);
+        GotoCookerMap.setVisibility(View.INVISIBLE);
+
         GotoCookerMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +62,9 @@ public class forUserInfo extends AppCompatActivity {
                             String name = dataSnapshot.child("landline").getValue().toString();
                             String num = dataSnapshot.child("cell").getValue().toString();
                             String address = dataSnapshot.child("raddress").getValue().toString();
+                            tvCookNum.setVisibility(View.VISIBLE);
+                            tvCookAddress.setVisibility(View.VISIBLE);
+                            GotoCookerMap.setVisibility(View.VISIBLE);
                             tvCookName.setText("Chef Name"+ name);
                             tvCookNum.setText("Number "+ num);
                             tvCookAddress.setText("Address "+ address);

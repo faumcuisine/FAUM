@@ -138,23 +138,27 @@ public class Rider_User_Location extends FragmentActivity implements OnMapReadyC
                     //  DatabaseReference chekCookInfo = CookerAndRiderLocationInformation.getParent().child("Expert Location Information").child(cookid);
                     DatabaseReference chekRiderInfo = CookerAndRiderLocationInformation.getParent().child("User Location Information").child(riderid);
 
+if(riderid != null && cookid != null) {
+    chekRiderInfo.addValueEventListener(new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            riderlat = dataSnapshot.child("l").child("0").getValue().toString();
+            riderlong = dataSnapshot.child("l").child("1").getValue().toString();
 
-                    chekRiderInfo.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            riderlat = dataSnapshot.child("l").child("0").getValue().toString();
-                            riderlong = dataSnapshot.child("l").child("1").getValue().toString();
 
+            myCallBack.onCallback(riderlat, riderlong);
+        }
 
-                            myCallBack.onCallback(riderlat,riderlong);
-                        }
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
 
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-
-                        }
-                    });
-
+        }
+    });
+}
+else {
+    etOrigin.setText("");
+    etDestination.setText("");
+}
 
 
                 }
@@ -190,21 +194,28 @@ public class Rider_User_Location extends FragmentActivity implements OnMapReadyC
                     DatabaseReference CookerAndRiderLocationInformation = FirebaseDatabase.getInstance().getReference("Transaction Confirmation for Rider");
                     DatabaseReference chekCookInfo = CookerAndRiderLocationInformation.getParent().child("Expert Location Information").child(cookid);
                     DatabaseReference chekRiderInfo = CookerAndRiderLocationInformation.getParent().child("Rider Location Information").child(riderid);
-                    chekCookInfo.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            cooklat = dataSnapshot.child("l").child("0").getValue().toString();
-                            cooklong = dataSnapshot.child("l").child("1").getValue().toString();
+
+                   if (riderid != null && cookid != null) {
+                       chekCookInfo.addValueEventListener(new ValueEventListener() {
+                           @Override
+                           public void onDataChange(DataSnapshot dataSnapshot) {
+                               cooklat = dataSnapshot.child("l").child("0").getValue().toString();
+                               cooklong = dataSnapshot.child("l").child("1").getValue().toString();
 
 
-                            myCallBack.onCallback(cooklat,cooklong);
-                        }
+                               myCallBack.onCallback(cooklat, cooklong);
+                           }
 
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
+                           @Override
+                           public void onCancelled(DatabaseError databaseError) {
 
-                        }
-                    });
+                           }
+                       });
+                   }
+                   else {
+                       etOrigin.setText("");
+                       etDestination.setText("");
+                   }
 
                 }
 

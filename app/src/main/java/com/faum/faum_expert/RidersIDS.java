@@ -57,7 +57,7 @@ public class RidersIDS extends AppCompatActivity {
     DatabaseReference transactionConfirmationUser = FirebaseDatabase.getInstance().getReference("Transaction Confirmation for User");
 
     DatabaseReference transactionConfirmationExpert = FirebaseDatabase.getInstance().getReference("Transaction Confirmation for Expert");
-
+    DatabaseReference Riderbackup = FirebaseDatabase.getInstance().getReference("Rider Backup");
     String riderFName,riderLName,riderCell;
 
     GeoFire geoFireCooker= new GeoFire(cookerLocationRefrence);
@@ -97,6 +97,8 @@ public class RidersIDS extends AppCompatActivity {
         tvRiderLNAME = (TextView)findViewById(R.id.tvRiderLNAME);
         tvRiderCell = (TextView)findViewById(R.id.tvRiderCell);
         btnRiderContact = (Button)findViewById(R.id.btnRiderContact);
+        riderID.setVisibility(View.INVISIBLE);
+
         rLocations = new ArrayList<>();
         rIDs =  new ArrayList<>();
         activeRiderIDs = new ArrayList<>();
@@ -113,7 +115,8 @@ public class RidersIDS extends AppCompatActivity {
         btnRiderContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RidersIDS.this,notifyToRider.class);
+                Intent intent = new Intent(RidersIDS.this,Navigation_Drawer.class);
+                startActivity(intent);
             }
         });
 
@@ -297,7 +300,7 @@ public class RidersIDS extends AppCompatActivity {
             closestRiderID = rIDs.get(indexValue);
             Log.d("Index value IDS",closestRiderID);
             findingRiderInformation();
-            riderID.setText(closestRiderID);
+           // riderID.setText(closestRiderID);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -305,7 +308,7 @@ public class RidersIDS extends AppCompatActivity {
     public void findingRiderInformation(){
 
         try{
-            riderID.setText(closestRiderID);
+            //riderID.setText(closestRiderID);
 
             riderContactInformation.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -347,6 +350,7 @@ public class RidersIDS extends AppCompatActivity {
             transactionConfirmationRider.child(closestRiderID).child(closestRiderID).setValue(transaction_confirmation);
             transactionConfirmationExpert.child(cookerRefrence.getUid()).child(cookerRefrence.getUid()).setValue(transaction_confirmation);
             transactionConfirmationUser.child(userID).child(userID).setValue(transaction_confirmation);
+            Riderbackup.child(closestRiderID).child(closestRiderID).setValue(transaction_confirmation);
         }catch (Exception e){
             e.printStackTrace();
         }

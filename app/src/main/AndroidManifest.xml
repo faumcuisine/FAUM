@@ -140,6 +140,7 @@
         <activity android:name=".notifyToRider" />
         <activity android:name=".recentOrderList2" />
         <activity android:name="com.faum.faum_rider.notifytochef"></activity>
+        <activity android:name="com.faum.faum_rider.notifyToUser"></activity>
     </application>
 
 </manifest>

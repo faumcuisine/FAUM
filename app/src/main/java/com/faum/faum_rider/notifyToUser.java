@@ -23,7 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class notifytochef extends AppCompatActivity {
+public class notifyToUser extends AppCompatActivity {
 
     Button send, deliver;
     EditText e2;
@@ -55,7 +55,7 @@ public class notifytochef extends AppCompatActivity {
                 deleting();
             }
         });
-        gecookidfordeleting(new notifytochef.MyCallBack(){
+        gecookidfordeleting(new notifyToUser.MyCallBack(){
             @Override
             public void onCallback(String cookIdd,String riderIDd){
 
@@ -71,10 +71,10 @@ public class notifytochef extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot dSnapshot : dataSnapshot.getChildren()){
-                    cookID = dSnapshot.getValue(Transaction_Confirmation.class).getCookID();
+                    cookID = dSnapshot.getValue(Transaction_Confirmation.class).getUserID();
                     String cookid = cookID;
                     DatabaseReference CookerPersonalInformation = FirebaseDatabase.getInstance().getReference("Transaction Confirmation for Rider");
-                    DatabaseReference chekCookInfo = CookerPersonalInformation.getParent().child("Expert Contact Information").child(cookid);
+                    DatabaseReference chekCookInfo = CookerPersonalInformation.getParent().child("User Contact Information").child(cookid);
 
                     if(cookid != null) {
                         chekCookInfo.addValueEventListener(new ValueEventListener() {
@@ -128,9 +128,9 @@ public class notifytochef extends AppCompatActivity {
                 try {
                     SmsManager smsManager = SmsManager.getDefault();
                     smsManager.sendTextMessage(number, null, sms, null, null);
-                    Toast.makeText(notifytochef.this, "sent!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(notifyToUser.this, "sent!", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
-                    Toast.makeText(notifytochef.this, "Failed!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(notifyToUser.this, "Failed!", Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -138,13 +138,13 @@ public class notifytochef extends AppCompatActivity {
         });
 
 
-        if (ContextCompat.checkSelfPermission(notifytochef.this, android.Manifest.permission.SEND_SMS)
+        if (ContextCompat.checkSelfPermission(notifyToUser.this, android.Manifest.permission.SEND_SMS)
                 != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(notifytochef.this, android.Manifest.permission.SEND_SMS)) {
-                ActivityCompat.requestPermissions(notifytochef.this,
+            if (ActivityCompat.shouldShowRequestPermissionRationale(notifyToUser.this, android.Manifest.permission.SEND_SMS)) {
+                ActivityCompat.requestPermissions(notifyToUser.this,
                         new String[]{android.Manifest.permission.SEND_SMS}, 1);
             } else {
-                ActivityCompat.requestPermissions(notifytochef.this,
+                ActivityCompat.requestPermissions(notifyToUser.this,
                         new String[]{android.Manifest.permission.SEND_SMS}, 1);
             }
         } else {
@@ -158,7 +158,7 @@ public class notifytochef extends AppCompatActivity {
         switch (requestCode){
             case 1:
                 if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                    if(ContextCompat.checkSelfPermission(notifytochef.this, android.Manifest.permission.SEND_SMS)
+                    if(ContextCompat.checkSelfPermission(notifyToUser.this, android.Manifest.permission.SEND_SMS)
                             != PackageManager.PERMISSION_GRANTED){
                         Toast.makeText(this, "Permisiion Granted", Toast.LENGTH_SHORT).show();
                     }
@@ -172,48 +172,48 @@ public class notifytochef extends AppCompatActivity {
 
 
 
-        private void gecookidfordeleting ( final notifytochef.MyCallBack mycallback){
-            TransactionConfiramtion.child(rider.getUid()).addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (DataSnapshot dSnapshot : dataSnapshot.getChildren()) {
-                        cookID = dSnapshot.getValue(Transaction_Confirmation.class).getCookID();
-                        String cookid = cookID;
-                        riderID =dSnapshot.getValue(Transaction_Confirmation.class).getRiderID();
-                        String riderid = riderID;
-                        userID = dSnapshot.getValue(Transaction_Confirmation.class).getUserID();
-                        String userid = userID;
+    private void gecookidfordeleting ( final notifyToUser.MyCallBack mycallback){
+        TransactionConfiramtion.child(rider.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot dSnapshot : dataSnapshot.getChildren()) {
+                    cookID = dSnapshot.getValue(Transaction_Confirmation.class).getCookID();
+                    String cookid = cookID;
+                    riderID =dSnapshot.getValue(Transaction_Confirmation.class).getRiderID();
+                    String riderid = riderID;
+                    userID = dSnapshot.getValue(Transaction_Confirmation.class).getUserID();
+                    String userid = userID;
 
-                        // DatabaseReference CookerPersonalInformation = FirebaseDatabase.getInstance().getReference("Transaction Confirmation for Rider");
-                        //   DatabaseReference chekCookInfo = CookerPersonalInformation.getParent().child("Expert Contact Information").child(cookid);
-                        mycallback.onCallback(cookid,riderid);
+                    // DatabaseReference CookerPersonalInformation = FirebaseDatabase.getInstance().getReference("Transaction Confirmation for Rider");
+                    //   DatabaseReference chekCookInfo = CookerPersonalInformation.getParent().child("Expert Contact Information").child(cookid);
+                    mycallback.onCallback(cookid,riderid);
 
-
-                    }
-                }
-
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
 
                 }
-            });
-        }
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
 
     private interface MyCallBack {
         void onCallback(String cookID,String riderID);
     }
-        public void deilverd(String cookID,String riderIDd){
-           // DatabaseReference CookerPersonalInformation = FirebaseDatabase.getInstance().getReference("Transaction Confirmation for Rider").child(riderIDd).child(riderIDd).child("cookID");
-            //CookerPersonalInformation.removeValue();
-            //e1.setText("");
-        }
-        public void deleting(){
+    public void deilverd(String cookID,String riderIDd){
+        // DatabaseReference CookerPersonalInformation = FirebaseDatabase.getInstance().getReference("Transaction Confirmation for Rider").child(riderIDd).child(riderIDd).child("cookID");
+        //CookerPersonalInformation.removeValue();
+        //e1.setText("");
+    }
+    public void deleting(){
 
 
-            TransactionConfiramtion.child(rider.getUid()).removeValue();
-            e1.setText("");
-        }
+        TransactionConfiramtion.child(rider.getUid()).removeValue();
+        e1.setText("");
+    }
 
 
 

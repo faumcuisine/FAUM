@@ -120,7 +120,7 @@ public class Recent_Order_List extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(Recent_Order_List.this,"Databse error", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Recent_Order_List.this,"Databse error", Toast.LENGTH_SHORT).show();
             }
         });
     }

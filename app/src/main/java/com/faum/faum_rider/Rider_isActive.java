@@ -40,12 +40,12 @@ public class Rider_isActive extends AppCompatActivity {
             }
         });
 
-        riderActiveRefrence.child(riderUser.getUid()).addValueEventListener(new ValueEventListener() {
+        riderActiveRefrence.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot dSnapshot : dataSnapshot.getChildren()){
                     try {
-                        check = dSnapshot.getValue(Rider_Database.class).getRiderisAcvtive();
+                        check = dSnapshot.child(riderUser.getUid()).getValue(Rider_Database.class).getRiderisAcvtive();
                     }catch (Exception e){
                         e.printStackTrace();
                     }

@@ -10,6 +10,7 @@ import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.faum.faum_user.notification;
@@ -22,8 +23,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class notifyToRider extends AppCompatActivity {
-    Button send;
-    EditText e1,e2;
+    Button send,disable;
+    EditText e2;
+    TextView e1;
     DatabaseReference TransactionConfiramtion = FirebaseDatabase.getInstance().getReference("Transaction Confirmation for Expert");
     FirebaseUser Expert = FirebaseAuth.getInstance().getCurrentUser();
     String eid = Expert.getUid();
@@ -34,9 +36,10 @@ public class notifyToRider extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notify);
         send = (Button) findViewById(R.id.button);
-        e1 = (EditText) findViewById(R.id.editText);
+        e1 = (TextView) findViewById(R.id.textView);
         e2 = (EditText) findViewById(R.id.editText2);
-
+        disable = (Button) findViewById(R.id.btndeliver2);
+        disable.setEnabled(false);
 
     e2.setText("Please check your phone and confirm me Thankyou!!");
         TransactionConfiramtion.child(Expert.getUid()).addValueEventListener(new ValueEventListener() {

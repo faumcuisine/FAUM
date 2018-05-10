@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,6 +15,7 @@ import com.faum.faum_expert.R;
 public class Recent_Order_Data extends AppCompatActivity {
 
     TextView tvOrderDealName,tvOrderDealCat,tvOrderDealPrice,tvOrderDealQty;
+    Button btnBooKRider;
 
 
     @Override
@@ -24,6 +27,9 @@ public class Recent_Order_Data extends AppCompatActivity {
         tvOrderDealCat = (TextView)findViewById(R.id.tvOrderDealCat);
         tvOrderDealPrice = (TextView)findViewById(R.id.tvOrderDealPrice);
         tvOrderDealQty = (TextView)findViewById(R.id.tvOrderDealQty);
+        btnBooKRider = (Button)findViewById(R.id.btnBooKRider);
+        btnBooKRider.setVisibility(View.INVISIBLE);
+
 
         SharedPreferences mPrefrences = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -34,7 +40,7 @@ public class Recent_Order_Data extends AppCompatActivity {
         String dealTotalPrice = mPrefrences.getString(getString(R.string.ORDER_PRICE)," ");
         String dealTotalQty = mPrefrences.getString(getString(R.string.ORDER_QTY)," ");
 
-        Toast.makeText(Recent_Order_Data.this,dealName, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(Recent_Order_Data.this,dealName, Toast.LENGTH_SHORT).show();
 
         tvOrderDealName.setText("Deal Name: "+dealName);
         tvOrderDealCat.setText("Category: "+newDealCategory);

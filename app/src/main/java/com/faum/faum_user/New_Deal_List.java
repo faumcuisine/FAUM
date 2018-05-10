@@ -185,7 +185,7 @@ public class New_Deal_List extends AppCompatActivity {
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(New_Deal_List.this,"Databse error",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(New_Deal_List.this,"Databse error",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -227,7 +227,7 @@ public class New_Deal_List extends AppCompatActivity {
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(New_Deal_List.this,"Databse error",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(New_Deal_List.this,"Databse error",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -305,19 +305,19 @@ public class New_Deal_List extends AppCompatActivity {
                     try{
                         //Toast.makeText(New_Deal_List.this,dealSnapshot.child(DealId).toString(),Toast.LENGTH_SHORT).show();
                         if(newDeal_database.getMonday()== true ){
-                            Toast.makeText(getApplicationContext(),DEAL_DAYS_MONDAY,Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getApplicationContext(),DEAL_DAYS_MONDAY,Toast.LENGTH_SHORT).show();
                             DEAL_DAYS_MONDAY = "Available";
                         }else{
-                            Toast.makeText(getApplicationContext(),DEAL_DAYS_MONDAY,Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getApplicationContext(),DEAL_DAYS_MONDAY,Toast.LENGTH_SHORT).show();
                             DEAL_DAYS_MONDAY = "Not-Available";
                         }
                         if(dealSnapshot.child(DealId).getValue(NewDeal_Database.class).getTuesday() == true){
                             DEAL_DAYS_TUESDAY = "Available";
-                            Toast.makeText(getApplicationContext(),DEAL_DAYS_TUESDAY,Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getApplicationContext(),DEAL_DAYS_TUESDAY,Toast.LENGTH_SHORT).show();
 
                         }else{
                             DEAL_DAYS_TUESDAY = "Not-Available";
-                            Toast.makeText(getApplicationContext(),DEAL_DAYS_TUESDAY,Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getApplicationContext(),DEAL_DAYS_TUESDAY,Toast.LENGTH_SHORT).show();
                         }
                         if(dealSnapshot.child(DealId).getValue(NewDeal_Database.class).getWednesday() == true){
                             DEAL_DAYS_WEDNESDAY = "Available";

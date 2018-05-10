@@ -11,6 +11,7 @@ import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,8 +23,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class notify extends AppCompatActivity {
-    Button send;
-    EditText e1,e2;
+    EditText e2;
+    TextView e1;
+    Button send, disable;
     DatabaseReference TransactionConfiramtion = FirebaseDatabase.getInstance().getReference("Transaction Confirmation for Expert");
     FirebaseUser expert = FirebaseAuth.getInstance().getCurrentUser();
     String eid = expert.getUid();
@@ -34,9 +36,10 @@ public class notify extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notify);
         send = (Button)findViewById(R.id.button);
-        e1 = (EditText)findViewById(R.id.editText);
+        e1 = (TextView)findViewById(R.id.textView);
         e2 = (EditText)findViewById(R.id.editText2);
-
+        disable = (Button) findViewById(R.id.btndeliver2);
+        disable.setEnabled(false);
 
 
 

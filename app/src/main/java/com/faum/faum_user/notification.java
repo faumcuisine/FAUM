@@ -12,6 +12,7 @@ import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.faum.faum_expert.R;
@@ -32,7 +33,7 @@ import static com.faum.faum_user.Deal_Invoice.orderID;
  */
 
 public class notification extends AppCompatActivity {
-    Button send;
+    Button send, disable;
     EditText e1,e2;
     SharedPreferences mPrefrences;
     DatabaseReference userOrderRefrence = FirebaseDatabase.getInstance().getReference("User Confirmed Order");
@@ -45,15 +46,20 @@ public class notification extends AppCompatActivity {
     DatabaseReference userOrderConfirmedRefrence = FirebaseDatabase.getInstance().getReference("User Confirmed Order");
 
     FirebaseUser User = FirebaseAuth.getInstance().getCurrentUser();
+    TextView t1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notify);
         send = (Button)findViewById(R.id.button);
-        e1 = (EditText)findViewById(R.id.editText);
+        t1 = (TextView)findViewById(R.id.textView);
         e2 = (EditText)findViewById(R.id.editText2);
+        disable = (Button) findViewById(R.id.btndeliver2);
+        disable.setVisibility(View.INVISIBLE);
+
         mPrefrences = PreferenceManager.getDefaultSharedPreferences(this);
+
         SharedPreferences.Editor mEditor =  mPrefrences.edit();
         /*userOrderRefrence.child(User.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -78,7 +84,7 @@ public class notification extends AppCompatActivity {
                 String name = dataSnapshot.child("landline").getValue().toString();
                 String num = dataSnapshot.child("cell").getValue().toString();
 
-                e1.setText(num);
+                t1.setText(num);
                 //e2.setText(num);
             }
 
@@ -90,15 +96,15 @@ public class notification extends AppCompatActivity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String number = e1.getText().toString();
+                String number = t1.getText().toString();
                 String sms = e2.getText().toString();
                 try {
                     SmsManager smsManager = SmsManager.getDefault();
                     smsManager.sendTextMessage(number, null, sms, null, null);
-                    Toast.makeText(notification.this,"sent!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(notification.this,"Message Send!",Toast.LENGTH_SHORT).show();
                 }
                 catch (Exception e){
-                    Toast.makeText(notification.this,"Failed!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(notification.this,"Message Failed!",Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -114,7 +120,7 @@ public class notification extends AppCompatActivity {
                 String price = dataSnapshot.child("orderPrice").getValue().toString();
                 String qty = dataSnapshot.child("orderQty").getValue().toString();
 
-                e2.setText(name+ " "+price+" "+qty);
+                e2.setText("Deal Name: "+name+ " Deal Price:"+price+" Deal Qty: "+qty);
                 //e2.setText(num);
             }
 

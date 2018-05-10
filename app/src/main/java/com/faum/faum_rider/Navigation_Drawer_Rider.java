@@ -26,14 +26,7 @@ public class Navigation_Drawer_Rider extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -89,7 +82,8 @@ public class Navigation_Drawer_Rider extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
             startActivity(new Intent(Navigation_Drawer_Rider.this,notifytochef.class));
         } else if (id == R.id.nav_slideshow) {
-            startActivity(new Intent(Navigation_Drawer_Rider.this,User_sign.class));
+
+            startActivity(new Intent(Navigation_Drawer_Rider.this,notifyToUser.class));
 
         } else if (id == R.id.nav_manage) {
 
@@ -98,6 +92,10 @@ public class Navigation_Drawer_Rider extends AppCompatActivity
 
             startActivity(new Intent(Navigation_Drawer_Rider.this,user_chef_info.class));
 
+        }else if (id== R.id.nav_signout){
+            startActivity(new Intent(Navigation_Drawer_Rider.this,User_sign.class));
+        }else if (id== R.id.nav_location){
+            startActivity(new Intent(Navigation_Drawer_Rider.this,MapsActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

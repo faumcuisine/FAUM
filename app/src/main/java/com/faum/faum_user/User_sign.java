@@ -49,7 +49,7 @@ public class User_sign extends AppCompatActivity {
 
 
                 if(facebookCheck==true) {
-                    Toast.makeText(User_sign.this,"check",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(User_sign.this,"check",Toast.LENGTH_SHORT).show();
                     LoginManager.getInstance().logOut();
                     FirebaseAuth.getInstance().signOut();
                 }else{

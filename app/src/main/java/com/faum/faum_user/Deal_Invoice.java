@@ -29,7 +29,8 @@ import static com.faum.faum_user.MapsActivityForCooker.userLocation;
 
 public class Deal_Invoice extends AppCompatActivity {
 
-    Button btnCoOrder,btnCall,btnText,btnCalculate,btnch;
+    Button btnCoOrder,btnCall,btnText;
+    //Button btnCalculate,btnch;
     EditText etQty;
     TextView tvTotal,check;
     int userQty;
@@ -60,10 +61,15 @@ public class Deal_Invoice extends AppCompatActivity {
         btnCall = (Button)findViewById(R.id.btnCall);
         //btnch = (Button)findViewById(R.id.btncheck);
         btnText = (Button)findViewById(R.id.btnText);
-        btnCalculate = (Button)findViewById(R.id.btnCalculate);
+        //btnCalculate = (Button)findViewById(R.id.btnCalculate);
         tvTotal = (TextView)findViewById(R.id.tvTotal);
         //check = (TextView)findViewById(R.id.tvcheck);
         etQty = (EditText)findViewById(R.id.etQty);
+
+        btnCoOrder.setVisibility(View.INVISIBLE);
+
+        btnCall.setVisibility(View.INVISIBLE);
+        btnText.setVisibility(View.INVISIBLE);
 
         mPrefrences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor mEditor =  mPrefrences.edit();
@@ -121,7 +127,7 @@ public class Deal_Invoice extends AppCompatActivity {
                 tvTotal.setVisibility(View.INVISIBLE);
                 etQty.setVisibility(View.INVISIBLE);
                 btnCoOrder.setVisibility(View.INVISIBLE);
-                btnCalculate.setVisibility(View.INVISIBLE);
+                //btnCalculate.setVisibility(View.INVISIBLE);
 
                 btnCall.setVisibility(View.VISIBLE);
                 btnText.setVisibility(View.VISIBLE);
